@@ -15,8 +15,6 @@
 #define NUMK 3
 #define ADJS 4
 
-
-
 / {
 
 // Tap Dance
@@ -62,9 +60,7 @@
                 bindings = <&kp UNDER>, <&kp TILDE>;
             };
 
-            &caps_word {
-                mods = <(MOD_LSFT)>;
-            };
+
         };
 
         keymap {
