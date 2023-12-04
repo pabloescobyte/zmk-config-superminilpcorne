@@ -77,11 +77,6 @@
             };
         };
 
-
-        &caps_word {
-            continue-list = <UNDERSCORE MINUS>;
-        };
-
         keymap {
                 compatible = "zmk,keymap";
 
