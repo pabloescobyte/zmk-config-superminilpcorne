@@ -61,10 +61,10 @@
                 tapping-term-ms = <200>;
                 bindings = <&kp UNDER>, <&kp TILDE>;
             };
-        };
 
-        &caps_word {
-            mods = <(MOD_LSFT)>;
+            &caps_word {
+                mods = <(MOD_LSFT)>;
+            };
         };
 
         keymap {
