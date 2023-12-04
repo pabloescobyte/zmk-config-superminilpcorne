@@ -59,7 +59,8 @@
                 tapping-term-ms = <200>;
                 bindings = <&kp UNDER>, <&kp TILDE>;
             };
-            capdance: capdance {
+            // double-tapping LSHIFT turns on CAPS WORD
+            tdcaps: td_caps_word {
                 compatible = "zmk,behavior-tap-dance";
                 label = "CAPDANCE";
                 #binding-cells = <0>;
@@ -82,9 +83,18 @@
                 bindings = <&kp LC(W)>;
             };
             caps_word {
-              key-positions = <24>;
-              bindings = <&caps_word>;
+                bindings = <&caps_word>;
             };
+            ctab {
+                timeout-ms = <50>;
+                key-positions = <15 16>;
+                bindings = <&kp LC(TAB)>;
+            }
+            cstab {
+                timeout-ms = <50>;
+                key-positions = <16 17>;
+                bindings = <&kp LC(LS(TAB))>;
+            }
         };
 
         keymap {
@@ -99,7 +109,7 @@
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &tdapco  &kp RET
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &tdusti
+   &tdcaps   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &tdusti
           &kp LALT &mo NAVI &lt NUMS SPACE   &kp SPACE &kp LGUI &mo NUMK
                         >;
                 };
