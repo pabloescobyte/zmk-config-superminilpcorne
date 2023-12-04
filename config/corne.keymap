@@ -15,7 +15,7 @@
 #define NUMK 3
 #define ADJS 4
 
-&caps_word
+
 
 / {
 
@@ -61,6 +61,10 @@
                 tapping-term-ms = <200>;
                 bindings = <&kp UNDER>, <&kp TILDE>;
             };
+        };
+
+        &caps_word {
+            mods = <(MOD_LSFT)>;
         };
 
         keymap {
