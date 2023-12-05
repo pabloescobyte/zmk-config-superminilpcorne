@@ -19,13 +19,13 @@
 
 // Tap Dance
         behaviors {
-            // single quote, colon
-            tdapco: tap_dance_apco {
+            // single quote, colon, semicolon
+            tdsqclsc: tap_dance_sqclsc {
                 compatible = "zmk,behavior-tap-dance";
                 label = "TAP_DANCE_0";
                 #binding-cells = <0>;
                 tapping-term-ms = <200>;
-                bindings = <&kp SQT>, <&kp COLON>;
+                bindings = <&kp SQT>, <&kp COLON>, <&kp SEMI>;
             };
             // comma, double quote
             tdcmdq: tap_dance_cmdq {
@@ -70,52 +70,87 @@
 
         combos {
             compatible = "zmk,combos";
-            // ESC = TAB+Q
+            // TAB+Q = ESC
             esc {
                 timeout-ms = <50>;
                 key-positions = <0 1>;
                 bindings = <&kp ESC>;
             };
-            // CTRL+W = Q+W
+            // OPBKSSP = DEL
+            opbksp_del {
+                timeout-ms = <50>;
+                key-positions = <9 10 11>;
+                bindings = <&kp DEL>;
+            };
+            // QW = CTRL+W
             ctrlw {
                 timeout-ms = <50>;
                 key-positions = <1 2>;
                 bindings = <&kp LC(W)>;
             };
+            // DF = CTRL+TAB
             ctab {
                 timeout-ms = <50>;
                 key-positions = <15 16>;
                 bindings = <&kp LC(TAB)>;
             };
+            // FG = CTRL+SHIFT+TAB
             cstab {
                 timeout-ms = <50>;
                 key-positions = <16 17>;
                 bindings = <&kp LC(LS(TAB))>;
             };
+            // SDF = CTRL+DOT
             sdf_ctrldot {
                 timeout-ms = <50>;
                 key-positions = <14 15 16>;
                 bindings = <&kp LC(DOT)>;
             };
+            // WR = CTRL+HOME
+            wr_ctrlhome {
+                timeout-ms = <50>;
+                key-positions = <2 4>;
+                bindings = <&kp LC(HOME)>;
+            };
+            // SF = CTRL+END
+            sf_ctrlend {
+                timeout-ms = <50>;
+                key-positions = <14 16>;
+                bindings = <&kp LC(END)>;
+            };
+            // XCV = ALT+F4
             xcv_altf4 {
                 timeout-ms = <50>;
                 key-positions = <26 27 28>;
                 bindings = <&kp LA(F4)>;
             };
-            uio_underscore {
+            // UIO = PLUS
+            uio_plus {
                 timeout-ms = <50>;
                 key-positions = <7 8 9>;
-                bindings = <&kp UNDER>;
+                bindings = <&kp PLUS>;
             };
+            // JKL = MINUS
             jkl_minus {
-                timeout-ms = <50>;
+                timeout-ms e= <50>;
                 key-positions = <19 20 21>;
                 bindings = <&kp MINUS>;
             };
-            mltgt_tilde {
+            // M<> = EQUALS
+            mltgt_equal {
                 timeout-ms = <50>;
                 key-positions = <31 32 33>;
-                bindings = <&kp TILDE>;
+                bindings = <&kp EQUAL>;
+            };
+        };
+
+        conditional_layers {
+            compatible = "zmk,conditional-layers";
+
+            // if activating NAVI and NUMS layers together, activate ADJS layer instead
+            tri_layer {
+                if-layers = <1 2>;
+                then-layer = <4>;
             };
         };
 
@@ -125,13 +160,13 @@
                 msgm {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  | ' : | ENTR |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | _ ~  |
+// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  | ':; | ENTR |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   | , " |  .  |  /  | _ ~  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &tdapco  &kp RET
-   &tdcaps   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &tdusti
+   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P     &kp BSPC
+   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &tdsqclsc &kp RET
+   &tdcaps   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &tdcmdq   &kp DOT &kp FSLH  &tdusti
           &kp LALT &mo NAVI &lt NUMS SPACE   &kp SPACE &kp LGUI &mo NUMK
                         >;
                 };
@@ -176,16 +211,17 @@
                 };
                 adjs {
 // -----------------------------------------------------------------------------------------
-// |      |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |       |     |     |     |     |     |    |    |    |    |    |    |    |
+// |       | BT1 | BT2 | BT3 | BT4 | BT5 |    |    |    |    |    |    |    |
+// | BTCLR |     |     |     |     |     |    |    |    |    |    |    |    |
+//                           |     |     |    |    |    |    |
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &kp MINUS  &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &trans      &trans       &trans       &trans       &trans       &trans         &trans &trans &trans &trans &trans &trans
+   &trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans &trans &trans &trans &trans &trans
+   &bt BT_CLR  &trans       &trans       &trans       &trans       &trans         &trans &trans &trans &trans &trans &trans
+                                                     &trans &trans &trans         &trans &trans &trans
                         >;
                 };
         };
 };
+
