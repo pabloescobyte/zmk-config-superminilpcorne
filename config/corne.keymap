@@ -52,14 +52,14 @@
                 bindings = <&kp FSLH>, <&kp BSLH>;
             };
             // underscore, tilde, backslash
-            tdutbs: tap_dance_ustibs {
+            tdutbs: tap_dance_utbs {
                 compatible = "zmk,behavior-tap-dance";
                 label = "TAP_DANCE_4";
                 #binding-cells = <0>;
                 tapping-term-ms = <200>;
-                bindings = <&kp UNDER>, <&kp TILDE>, <&kp BLSH>;
+                bindings = <&kp UNDER>, <&kp TILDE>, <&kp BSLH>;
             };
-            // double-tapping LSHIFT turns on CAPS WORD
+            // double-tap LSHIFT to turn on CAPS WORD
             tdcaps: td_caps_word {
                 compatible = "zmk,behavior-tap-dance";
                 label = "CAPDANCE";
@@ -279,28 +279,28 @@
                 };
                 numk {
 // -----------------------------------------------------------------------------------------
-// |      |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+// |  ESC |  /  |  7  |  8  |  9  |  -  |   |     |     |     |     |     |      |
+// | BKSP |  *  |  4  |  5  |  6  |  +  |   |     |     |     |     |     |      |
+// | NMLK |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &kp MINUS  &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
+   &kp ESC    &kp KP_SLASH    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS      &trans &trans &trans &trans &trans &trans
+   &kp BSPC   &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS       &trans &trans &trans &trans &trans &trans
+   &kp KP_NUM &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS       &trans &trans &trans &trans &trans &trans
                                     &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
                         >;
                 };
                 adjs {
 // -----------------------------------------------------------------------------------------
-// |       |     |     |     |     |     |    |    |    |    |    |    |    |
-// |       | BT1 | BT2 | BT3 | BT4 | BT5 |    |    |    |    |    |    |    |
-// | BTCLR |     |     |     |     |     |    |    |    |    |    |    |    |
-//                           |     |     |    |    |    |    |
+// |       |     |     |     |     |     |    |    | CAPS | INS | SLCK | PSCRN |    |
+// |       | BT1 | BT2 | BT3 | BT4 | BT5 |    |    |      |     |      |       |    |
+// | BTCLR |     |     |     |     |     |    |    |      |     |      |       |    |
+//                           |     |     |    |    |      |     |
                         bindings = <
-   &trans      &trans       &trans       &trans       &trans       &trans         &trans &trans &trans &trans &trans &trans
-   &trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans &trans &trans &trans &trans &trans
-   &bt BT_CLR  &trans       &trans       &trans       &trans       &trans         &trans &trans &trans &trans &trans &trans
-                                                     &trans &trans &trans         &trans &trans &trans
+   &trans      &trans       &trans       &trans       &trans       &trans         &trans &kp CAPS &kp INS &kp SLCK &kp PSCRN &trans
+   &trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans &trans   &trans  &trans   &trans    &trans
+   &bt BT_CLR  &trans       &trans       &trans       &trans       &trans         &trans &trans   &trans  &trans   &trans    &trans
+                                                     &trans &trans &trans         &trans &trans   &trans
                         >;
                 };
         };
