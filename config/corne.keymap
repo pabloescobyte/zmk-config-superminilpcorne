@@ -132,7 +132,7 @@
             };
             // JKL = MINUS
             jkl_minus {
-                timeout-ms e= <50>;
+                timeout-ms = <50>;
                 key-positions = <19 20 21>;
                 bindings = <&kp MINUS>;
             };
