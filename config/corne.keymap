@@ -51,13 +51,13 @@
                 tapping-term-ms = <200>;
                 bindings = <&kp FSLH>, <&kp BSLH>;
             };
-            // underscore, tilde
-            tdusti: tap_dance_usti {
+            // underscore, tilde, backslash
+            tdutbs: tap_dance_ustibs {
                 compatible = "zmk,behavior-tap-dance";
                 label = "TAP_DANCE_4";
                 #binding-cells = <0>;
                 tapping-term-ms = <200>;
-                bindings = <&kp UNDER>, <&kp TILDE>;
+                bindings = <&kp UNDER>, <&kp TILDE>, <&kp BLSH>;
             };
             // double-tapping LSHIFT turns on CAPS WORD
             tdcaps: td_caps_word {
@@ -82,30 +82,75 @@
                 key-positions = <9 10 11>;
                 bindings = <&kp DEL>;
             };
+
             // QW = CTRL+W
             ctrlw {
                 timeout-ms = <50>;
                 key-positions = <1 2>;
                 bindings = <&kp LC(W)>;
             };
+            // QE = ALT+F4
+            qe_altf4 {
+                timeout-ms = <50>;
+                key-positions = <1 3>;
+                bindings = <&kp LA(F4)>;
+            };
+
+
             // DF = CTRL+TAB
-            ctab {
+            df_ctrltab {
                 timeout-ms = <50>;
                 key-positions = <15 16>;
                 bindings = <&kp LC(TAB)>;
             };
-            // FG = CTRL+SHIFT+TAB
-            cstab {
+            // DG = CTRL+SHIFT+TAB
+            dg_ctrlshifttab {
                 timeout-ms = <50>;
-                key-positions = <16 17>;
+                key-positions = <15 17>;
                 bindings = <&kp LC(LS(TAB))>;
             };
-            // SDF = CTRL+DOT
-            sdf_ctrldot {
+
+            // ZC = CTRL+DOT
+            zc_ctrldot {
                 timeout-ms = <50>;
-                key-positions = <14 15 16>;
+                key-positions = <25 27>;
                 bindings = <&kp LC(DOT)>;
             };
+
+            // SHIFT+ZX = CTRL+Z
+            shftzx_ctrlz {
+                timeout-ms = <50>;
+                key-positions = <24 25 26>;
+                bindings = <&kp LC(Z)>;
+            };
+
+            // ZX = LEFTARROW
+            zx_left {
+                timeout-ms = <50>;
+                key-positions = <25 26>;
+                bindings = <&kp LEFT>;
+            };
+            // CV = RIGHTARROW
+            cv_right {
+                timeout-ms = <50>;
+                key-positions = <27 28>;
+                bindings = <&kp RIGHT>;
+            };
+
+            // SDF = UPARROW
+            sdf_up {
+                timeout-ms = <50>;
+                key-positions = <14 15 16>;
+                bindings = <&kp UP>;
+            };
+            // XCV = DOWNARROW
+            xcv_down {
+                timeout-ms = <50>;
+                key-positions = <26 27 28>;
+                bindings = <&kp DOWN>;
+            };
+
+
             // WR = CTRL+HOME
             wr_ctrlhome {
                 timeout-ms = <50>;
@@ -118,29 +163,65 @@
                 key-positions = <14 16>;
                 bindings = <&kp LC(END)>;
             };
-            // XCV = ALT+F4
-            xcv_altf4 {
+
+            // IOP = PLUS
+            iop_plus {
                 timeout-ms = <50>;
-                key-positions = <26 27 28>;
-                bindings = <&kp LA(F4)>;
-            };
-            // UIO = PLUS
-            uio_plus {
-                timeout-ms = <50>;
-                key-positions = <7 8 9>;
+                key-positions = <8 9 10>;
                 bindings = <&kp PLUS>;
             };
-            // JKL = MINUS
-            jkl_minus {
+            // KL' = MINUS
+            klsq_minus {
                 timeout-ms = <50>;
-                key-positions = <19 20 21>;
+                key-positions = <20 21 22>;
                 bindings = <&kp MINUS>;
             };
-            // M<> = EQUALS
-            mltgt_equal {
+            // ,./ = EQUALS
+            cmdtfs_equal {
                 timeout-ms = <50>;
-                key-positions = <31 32 33>;
+                key-positions = <32 33 34>;
                 bindings = <&kp EQUAL>;
+            };
+
+
+            // YU = {
+            yu_lcb {
+                timeout-ms = <50>;
+                key-positions = <6 7>;
+                bindings = <&kp LBRC>;
+            };
+            // IO = }
+            io_rcb {
+                timeout-ms = <50>;
+                key-positions = <8 9>;
+                bindings = <&kp RBRC>;
+            };
+
+            
+            // HJ = [
+            hj_lsb {
+                timeout-ms = <50>;
+                key-positions = <18 19>;
+                bindings = <&kp LBKT>;
+            };
+            // KL = ]
+            kl_rsb {
+                timeout-ms = <50>;
+                key-positions = <20 21>;
+                bindings = <&kp RBKT>;
+            };
+
+            // NM = (
+            nm_lpar {
+                timeout-ms = <50>;
+                key-positions = <30 31>;
+                bindings = <&kp LPAR>;
+            };
+            // ,. = )
+            ,._rpar {
+                timeout-ms = <50>;
+                key-positions = <32 33>;
+                bindings = <&kp RPAR>;
             };
         };
 
@@ -161,7 +242,7 @@
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  | ':; | ENTR |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   | , " |  .  |  /  | _ ~  |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   | , " |  .  |  /  | _~\  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P     &kp BSPC
