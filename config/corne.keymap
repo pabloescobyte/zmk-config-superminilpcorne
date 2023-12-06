@@ -164,6 +164,19 @@
                 bindings = <&kp LC(END)>;
             };
 
+            // RT = PGUP
+            sf_ctrlend {
+                timeout-ms = <50>;
+                key-positions = <4 5>;
+                bindings = <&kp PG_UP>;
+            };
+            // FG = PGDN
+            sf_ctrlend {
+                timeout-ms = <50>;
+                key-positions = <16 17>;
+                bindings = <&kp PG_DN>;
+            };
+
             // IOP = PLUS
             iop_plus {
                 timeout-ms = <50>;
