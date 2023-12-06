@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 // Custom layer definitions
-#define MSGM 0
+#define WIND 0
 #define NAVI 1
 #define NUMS 2
 #define NUMK 3
@@ -64,6 +64,7 @@
                 compatible = "zmk,behavior-tap-dance";
                 label = "CAPDANCE";
                 #binding-cells = <0>;
+                tapping-term-ms = <180>;
                 bindings = <&kp LSHFT>, <&caps_word>;
             };
         };
@@ -76,10 +77,16 @@
                 key-positions = <0 1>;
                 bindings = <&kp ESC>;
             };
-            // OPBKSSP = DEL
-            opbksp_del {
+            // OP+BACKSPACE = CTRL+BKSP
+            opbksp_ctrlbksp {
                 timeout-ms = <50>;
                 key-positions = <9 10 11>;
+                bindings = <&kp LC(BSPC)>;
+            };
+            // P+BACKSPACE = DEL
+            pbksp_del {
+                timeout-ms = <50>;
+                key-positions = <10 11>;
                 bindings = <&kp DEL>;
             };
 
@@ -166,16 +173,30 @@
 
             // RT = PGUP
             rt_pgup {
-                timeout-ms = <50>;
+                timeout-ms = <100>;
                 key-positions = <4 5>;
                 bindings = <&kp PG_UP>;
             };
             // FG = PGDN
             fg_pgdn {
-                timeout-ms = <50>;
+                timeout-ms = <100>;
                 key-positions = <16 17>;
                 bindings = <&kp PG_DN>;
             };
+
+            // ERT = HOME
+            ert_home {
+                timeout-ms = <50>;
+                key-positions = <3 4 5>;
+                bindings = <&kp HOME>;
+            };
+            // DFG = END
+            dfg_end {
+                timeout-ms = <50>;
+                key-positions = <15 16 17>;
+                bindings = <&kp END>;
+            };
+
 
             // IOP = PLUS
             iop_plus {
@@ -251,7 +272,7 @@
         keymap {
                 compatible = "zmk,keymap";
 
-                msgm {
+                wind {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  | ':; | ENTR |
