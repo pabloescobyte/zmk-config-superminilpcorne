@@ -268,7 +268,7 @@
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P     &kp BSPC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &tdsqclsc &kp RET
    &tdcaps   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &tdcmdq   &kp DOT &kp FSLH  &tdutbs
-          &kp LALT &mo NAVI &lt NUMS SPACE   &kp SPACE &kp LGUI &mo NUMK
+          &mo NAVI &kp LALT &lt NUMS SPACE   &kp SPACE &kp LGUI &mo NUMK
                         >;
                 };
                 navi {
