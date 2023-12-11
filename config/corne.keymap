@@ -91,7 +91,7 @@
             };
 
             // QW = CTRL+W
-            ctrlw {
+            qw_ctrlw {
                 timeout-ms = <50>;
                 key-positions = <1 2>;
                 bindings = <&kp LC(W)>;
@@ -260,10 +260,10 @@
 
                 wind {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  | ':; | ENTR |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   | , " |  .  |  /  | _~\  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// |  TAB |  Q  |  W  |   E  |   R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | CTRL |  A  |  S  |   D  |   F  |  G  |   |  H  |  J   |  K  |  L  | ':; | ENTR |
+// | SHFT |  Z  |  X  |   C  |   V  |  B  |   |  N  |  M   | , " |  .  |  /  | _~\  |
+//                | NAVI | LALT | NMS/SPC |   | SPC | GUI  | NUMK |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P     &kp BSPC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &tdsqclsc &kp RET
@@ -325,4 +325,3 @@
                 };
         };
 };
-
