@@ -64,7 +64,7 @@
                 compatible = "zmk,behavior-tap-dance";
                 label = "CAPDANCE";
                 #binding-cells = <0>;
-                tapping-term-ms = <150>;
+                tapping-term-ms = <100>;
                 bindings = <&kp LSHFT>, <&caps_word>;
             };
         };
@@ -72,10 +72,10 @@
         combos {
             compatible = "zmk,combos";
             // TAB+Q = ESC
-            esc {
-                timeout-ms = <50>;
-                key-positions = <0 1>;
-                bindings = <&kp ESC>;
+            // esc {
+            //     timeout-ms = <50>;
+            //     key-positions = <0 1>;
+            //     bindings = <&kp ESC>;
             };
             // OP+BACKSPACE = CTRL+BKSP
             opbksp_ctrlbksp {
@@ -260,15 +260,15 @@
 
                 wind {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |   E  |   R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |   D  |   F  |  G  |   |  H  |  J   |  K  |  L  | ':; | ENTR |
-// | SHFT |  Z  |  X  |   C  |   V  |  B  |   |  N  |  M   | , " |  .  |  /  | _~\  |
-//                | NAVI | LALT | NMS/SPC |   | SPC | GUI  | NUMK |
+// |  TAB     |  Q  |  W  |   E  |   R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | CTRL/ESC |  A  |  S  |   D  |   F  |  G  |   |  H  |  J   |  K  |  L  | ':; | ENTR |
+// | SHFT     |  Z  |  X  |   C  |   V  |  B  |   |  N  |  M   | , " |  .  |  /  | _~\  |
+//                    | NAVI | LALT | NMS/SPC |   | SPC | GUI  | NUMK |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P     &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &tdsqclsc &kp RET
-   &tdcaps   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &tdcmdq   &kp DOT &kp FSLH  &tdutbs
-          &mo NAVI &kp LALT &lt NUMS SPACE   &kp SPACE &kp LGUI &mo NUMK
+   &kp TAB       &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P     &kp BSPC
+   &mt LCTRL ESC &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &tdsqclsc &kp RET
+   &tdcaps       &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &tdcmdq   &kp DOT &kp FSLH  &tdutbs
+              &mo NAVI &kp LALT &lt NUMS SPACE   &kp SPACE &kp LGUI &mo NUMK
                         >;
                 };
                 navi {
