@@ -268,15 +268,15 @@
                 };
                 navi {
 // -----------------------------------------------------------------------------------------
-// |     | HOME |  UP  |  END  | PGUP | SPC |   | VOLU | { | } | _ | + | DEL |
-// |     | LEFT | DOWN | RIGHT | PGDN | ENT |   | VOLD | [ | ] | - | = |  ;  |
+// |CHOM | HOME |  UP  |  END  | PGUP | CSH |   | VOLU | { | } | _ | + | DEL |
+// |CEND | LEFT | DOWN | RIGHT | PGDN | CSE |   | VOLD | [ | ] | - | = |  ;  |
 // |     | SHOM | SEND | COPY  | PAST | CUT |   | MUTE | ( | ) | < | > |  |  |
 //                     |       |      |     |   |      |   |   |
                         bindings = <
-   &trans &kp HOME     &kp UP      &kp END   &kp PG_UP &kp SPACE   &kp C_VOL_UP &kp LBRC  &kp RBRC &kp UNDER &kp PLUS  &kp DEL
-   &trans &kp LEFT     &kp DOWN    &kp RIGHT &kp PG_DN &kp RET     &kp C_VOL_DN &kp LBKT  &kp RBKT &kp MINUS &kp EQUAL &kp SEMI
-   &trans &kp LS(HOME) &kp LS(END) &kp LC(C) &kp LC(V) &kp LC(X)   &kp C_MUTE   &kp LPAR  &kp RPAR &kp LT    &kp GT    &kp PIPE
-                                            &trans &trans &trans   &trans &trans &trans
+   &kp LC(HOME) &kp HOME     &kp UP      &kp END   &kp PG_UP &kp LC(LS(HOME))   &kp C_VOL_UP &kp LBRC  &kp RBRC &kp UNDER &kp PLUS  &kp DEL
+   &kp LC(END)  &kp LEFT     &kp DOWN    &kp RIGHT &kp PG_DN &kp LC(LS(END))    &kp C_VOL_DN &kp LBKT  &kp RBKT &kp MINUS &kp EQUAL &kp SEMI
+   &trans       &kp LS(HOME) &kp LS(END) &kp LC(C) &kp LC(V) &kp LC(X)          &kp C_MUTE   &kp LPAR  &kp RPAR &kp LT    &kp GT    &kp PIPE
+                                                        &trans &trans &trans   &trans &trans &trans
                         >;
                 };
                 nums {
