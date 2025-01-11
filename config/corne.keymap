@@ -186,10 +186,10 @@
                 key-positions = <15 16 17>;
                 bindings = <&kp END>;
             };
-            // VB = ENTER
-            vb_ent {
+            // XV = ENTER
+            xv_ent {
                 timeout-ms = <50>;
-                key-positions = <28 29>;
+                key-positions = <26 28>;
                 bindings = <&kp ENTR>;
             };
 
