@@ -190,8 +190,8 @@
             vb_ent {
                 timeout-ms = <50>;
                 key-positions = <28 29>;
-                bindings = <&kp ENTR>;                
-            }
+                bindings = <&kp ENTR>;
+            };
 
 
             // IOP = PLUS
