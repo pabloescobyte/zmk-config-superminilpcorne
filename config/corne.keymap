@@ -66,7 +66,7 @@
                 label = "TAP_DANCE_4";
                 #binding-cells = <0>;
                 tapping-term-ms = <200>;
-                bindings = <&kp UNDER>, <&kp TILDE>, <&kp BSLH>
+                bindings = <&kp UNDER>, <&kp TILDE>, <&kp BSLH>;
             };
             // double-tap LSHIFT to turn on CAPS WORD
             tdcaps: td_caps_word {
