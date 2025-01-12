@@ -178,11 +178,11 @@
                 key-positions = <15 16 17>;
                 bindings = <&kp END>;
             };
-            // VB = ENTR
+            // VB = ENTER
             vb_entr {
                 timeout-ms = <50>;
                 key-positions = <28 29>;
-                bindings = <&kp ENTR>;
+                bindings = <&kp RET>;
             };
 
             // IOP = PLUS
