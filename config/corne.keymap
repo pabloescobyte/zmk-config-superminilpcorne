@@ -68,14 +68,6 @@
                 tapping-term-ms = <200>;
                 bindings = <&kp UNDER>, <&kp TILDE>, <&kp BSLH>;
             };
-            // double-tap LSHIFT to turn on CAPS WORD
-            # tdcaps: td_caps_word {
-            #     compatible = "zmk,behavior-tap-dance";
-            #     label = "CAPDANCE";
-            #     binding-cells = <0>;
-            #     tapping-term-ms = <100>;
-            #     bindings = <&kp LSHFT>, &caps_word;
-            # };
         };
 
         combos {
