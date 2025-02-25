@@ -120,11 +120,11 @@
                 bindings = <&kp LC(DOT)>;
             };
 
-            // SHIFT+ZX = CTRL+Z
-            shftzx_ctrlz {
+            // SHIFT+ZX = CAPS WORD
+            shftzx_capsword {
                 timeout-ms = <50>;
                 key-positions = <24 25 26>;
-                bindings = <&kp LC(Z)>;
+                bindings = <&caps_word>;
             };
 
             // ZX = LEFTARROW
@@ -151,12 +151,6 @@
                 timeout-ms = <50>;
                 key-positions = <26 27 28>;
                 bindings = <&kp DOWN>;
-            };
-            // ZV = CAPS word
-            zv_capsword {
-                timeout-ms = <50>;
-                key-positions = <25 28>;
-                bindings = <&caps_word>;
             };
 
 
