@@ -152,6 +152,13 @@
                 key-positions = <26 27 28>;
                 bindings = <&kp DOWN>;
             };
+            // ZV = CAPS word
+            zv_capsword {
+                timeout-ms = <50>;
+                key-positions = <25 28>;
+                bindings = &caps_word;
+            };
+
 
             // WR = PGUP
             wr_pgup {
@@ -178,6 +185,12 @@
                 key-positions = <15 16 17>;
                 bindings = <&kp END>;
             };
+            // CB = BSPC
+            cb_bspc {
+                timeout-ms = <50>;
+                key-positions = <27 29>;
+                bindings = <&kp BSPC>;
+            };
             // VB = ENTER
             vb_entr {
                 timeout-ms = <50>;
@@ -185,7 +198,7 @@
                 bindings = <&kp RET>;
             };
 
-            // IOP = PLUS
+            // IOP  = PLUS
             iop_plus {
                 timeout-ms = <50>;
                 key-positions = <8 9 10>;
