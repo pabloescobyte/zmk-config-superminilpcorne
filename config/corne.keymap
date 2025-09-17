@@ -60,8 +60,8 @@
                 tapping-term-ms = <200>;
                 bindings = <&kp FSLH>, <&kp BSLH>;
             };
-            // underscore, tilde, backslash
-            tdutbs: tap_dance_utbs {
+            // tilde, underscore, backslash
+            tdtubs: tap_dance_tubs {
                 compatible = "zmk,behavior-tap-dance";
                 label = "TAP_DANCE_4";
                 #binding-cells = <0>;
@@ -275,10 +275,10 @@
                         bindings = <
    &kp TAB       &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I   &kp O   &kp P     &kp BSPC
    &mt LCTRL ESC   &kp A &kp S &kp D &bhm LGUI F &kp G   &kp H &bhm LSHIFT J &bhm RSHIFT K &kp L &tdsqclsc &kp RET
-   &kp LSHIFT      &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &tdcmdq &kp DOT &kp FSLH  &tdutbs
+   &kp LSHIFT      &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &tdcmdq &kp DOT &kp FSLH  &tdtubs
    //&kp TAB       &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I   &kp O   &kp P     &kp BSPC
    //&mt LCTRL ESC &bhm LCTRL A &bhm LALT S &bhm LGUI D &bhm LSHIFT F &kp G   &kp H &bhm LSHIFT J &bhm LALT K &bhm LCTRL L &tdsqclsc &kp RET
-   //&tdcaps       &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &tdcmdq &kp DOT &kp FSLH  &tdutbs
+   //&tdcaps       &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &tdcmdq &kp DOT &kp FSLH  &tdtubs
               &mo NAVI &kp LALT &lt NUMS SPACE   &kp SPACE &kp LGUI &mo NUMK
                         >;
                 };
